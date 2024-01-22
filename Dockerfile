@@ -26,5 +26,4 @@ WORKDIR /home/nodes/
 RUN npm install n8n-nodes-browserless
 
 
-CMD ["n8n start"]
 
