@@ -7,10 +7,12 @@ ARG ENCRYPTION_KEY
 
 ENV N8N_ENCRYPTION_KEY=$ENCRYPTION_KEY
 
-COPY dist ~/.n8n/custom
-CMD ["cd ~/.n8n/custom && ls"]
-WORKDIR /home/nodes/
+RUN mkdir ~/.n8n/custom
+WORKDIR /home/node/.n8n/custom
+RUN ls
+ADD dist .
+RUN ls ~/.n8n/custom/
+
 RUN npm install n8n-nodes-browserless
-CMD ["cd ~/.n8n/custom && ls"]
 
 EXPOSE 5678/tcp
