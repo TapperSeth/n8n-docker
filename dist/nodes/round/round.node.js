@@ -18,7 +18,7 @@ class round {
             properties: [
                 {
                     displayName: "Parameter 1",
-                    name: "num",
+                    name: "",
                     type: 'string',
                     default: '',
                     placeholder: 'Placeholder value',
@@ -33,9 +33,9 @@ class round {
         const output = [];
         for (let itemIndex = 0; itemIndex < items.length; itemIndex++) {
             try {
-                const parameters = [this.getNodeParameter('num', itemIndex, '')];
+                const parameters = [this.getNodeParameter('', itemIndex, '')];
                 console.log(parameters);
-                const func = eval('() => function round(num){return Math.round(num)};');
+                const func = eval('() => function random(){return Math.random()};');
                 console.log(await func());
                 console.log(await func()(...parameters));
                 output.push(await func()(...parameters));
